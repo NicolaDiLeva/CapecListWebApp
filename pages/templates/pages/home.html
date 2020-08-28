@@ -1,0 +1,67 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+
+<!-- home -->
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+		
+			<h1>Benvenuto nel catalogo CAPEC</h1>
+			<h5>Qui puoi effettuare qualsiasi ricerca in base alle tue esigenze</h5>
+			
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+
+<div class="row">
+  <!-- button meta -->
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <form method="get">
+			<button class="btn btn-default">
+				<a href="{% url 'meta' %}" class="btn btn-info" role="button">Cerca tutti gli attacchi di tipo Meta</a>
+			</button>
+		</div>
+    </div>
+  </div>
+  <!-- button parent -->
+  <div class="col-sm-3.5">
+    <div class="card">
+      <div class="card-body">
+        <form method="get">
+			<button class="btn btn-default">
+				<a href="{% url 'parent' %}" class="btn btn-info" role="button">Cerca tutti gli attacchi figli dell'ID 151</a>
+			</button>
+		</div>      
+    </div>
+  </div>
+  <!-- form id -->
+	<div class="col-sm-3">
+		<div class="card">
+			<div class="card card-body">
+				<form class="form-inline" method="GET">
+				  <h5>Inserisci l'ID dell'attacco:</h5>
+				  <label class="sr-only" for="input_id">ID:</label>
+				  <input type="text" class="form-control mb-2 mr-sm-2" id="id_query">
+				  <button class="btn btn-default mb-2">
+					<a href="{% url 'id' %}" class="btn btn-info" role="button">Cerca</a>
+				  </button>
+				</form>
+			</div>
+		</div>
+	</div>	
+
+</div>			
+
+<!-- form id(fisso)-->
+
+<!--prova-->
+
+{% endblock %} 

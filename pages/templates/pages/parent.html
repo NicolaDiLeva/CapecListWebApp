@@ -1,0 +1,39 @@
+{%  extends 'pages/base.html' %}
+
+{% block content %}
+
+<!-- risultati-->
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Results</h5>
+		</div>
+		<div class="card card-body">
+			<table class="table">
+				<tr>
+					<th>Name</th>
+					<th>Id</th>
+					<th>Abstraction</th>
+					<th>Related Attack Patterns</th>
+					<th>Typical Severity</th>							
+				</tr>
+				
+						
+					{% for i in object %}
+					<tr>
+						<td>{{i.name}}</td>
+						<td>{{i.id}}</td>
+						<td>{{i.abstraction}}</td>
+						<td>{{i.relatedattackpatterns}}</td>
+						<td>{{i.typicalseverity}}</td>
+					</tr>
+					{% endfor %}
+				
+				
+			</table>
+		</div>
+	</div>
+	
+</div>
+
+{% endblock content %}
