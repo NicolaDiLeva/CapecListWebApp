@@ -19,14 +19,27 @@ from . import views
 from pages.views import (
     
     home_view,
-       
+	
     )
 urlpatterns = [
     path('', views.home_view, name='home'),
-    
-	url(r'^query', views.meta_view, name='meta'),
-	url(r'^id', views.id_view, name='id'),
-
-	url(r'^parent', views.parent_view, name='parent'),
 	
+    url(r'^home', views.home_view, name='home'),
+	url(r'^id', views.id_view, name='id'),
+#   url(r'^meta', views.meta_view, name='meta'),
+    url(r'^parent', views.parent_view, name='parent'),
+	url(r'^name', views.name_view, name='name'),
+	url(r'^query', views.query_view, name='query'),
+	path('details/<int:id>/', views.details_view, name='details'),
+	
+	url(r'^DomainsOfAttack', views.DomainsOfAttack_view, name='DomainsOfAttack'),
+	url(r'^MechanismsOfAttack', views.MechanismsOfAttack_view, name='MechanismsOfAttack'),
+	url(r'^MobileDevicePatterns', views.MobileDevicePatterns_view, name='MobileDevicePatterns'),
+	url(r'^DeprecatedEntries', views.DeprecatedEntries_view, name='DeprecatedEntries'),
+	url(r'^MetaAbstractions', views.MetaAbstractions_view, name='MetaAbstractions'),
+	url(r'^StandardAbstractions', views.StandardAbstractions_view, name='StandardAbstractions'),
+	url(r'^DetailedAbstractions', views.DetailedAbstractions_view, name='DetailedAbstractions'),
+    
+    
+    
 ]

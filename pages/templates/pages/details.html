@@ -1,0 +1,135 @@
+{%  extends 'pages/base.html' %}
+
+{% block content %}
+<style>
+
+table, th{
+  width: 20%;
+}
+
+</style>
+
+<!-- risultati-->
+<br>
+<div class="row">
+	<div class="col-md">
+	
+		<div class="card card-body">
+			<h5>Ecco i risultati della tua ricerca:</h5>
+		</div>
+		
+		<br>
+		<div class="card">
+			<table class="table">
+			
+				{% for i in object %}
+				<tr>
+					<th>Name</th>
+					<td>{{i.name}}</td>
+				</tr>
+				
+				<tr>
+					<th>Id</th>
+					<td>{{i.id}}</td>
+				</tr>
+				
+				<tr>
+					<th>Status</th>
+					<td>{{i.status}}</td>
+				</tr>
+				
+				<tr>
+					<th>Description</th>
+					<td>{{i.description}}</td>
+				</tr>
+				
+				<tr>
+					<th>Alternate Terms</th>
+					<td>{{i.alternateterms}}</td>
+				</tr>
+				
+				<tr>
+					<th>Likelihood of Attack</th>
+					<td>{{i.likelihoodofattack}}</td>
+				</tr>
+				
+				<tr>
+					<th>Typical Severity</th>
+					<td>{{i.typicalseverity}}</td>					
+				</tr>
+					
+				<tr>
+					<th>Related Attack Patterns</th>
+					<td>{{i.relatedattackpatterns}}</td>
+				</tr>	
+				
+				<tr>
+					<th>Execution Flow</th>
+					<td>{{i.executionflow}}</td>
+				</tr>
+				
+				<tr>
+					<th>Prerequisites</th>
+					<td>{{i.prerequisites}}</td>
+				</tr>
+				
+				<tr>
+					<th>Skills Required</th>
+					<td>{{i.skillsrequired}}</td>
+				</tr>
+												
+				<tr>
+					<th>Abstraction</th>
+					<td>{{i.abstraction}}</td>
+				</tr>
+				
+				<tr>
+					<th>Resources Required</th>
+					<td>{{i.resourcesrequired}}</td>
+				</tr>
+				
+				<tr>
+					<th>Indicators</th>
+					<td>{{i.indicators}}</td>
+				</tr>
+				
+				<tr>
+					<th>Consequences</th>
+					<td>{{i.consequences}}</td>
+				</tr>
+				
+				<tr>
+					<th>Mitigations</th>
+					<td>{{i.mitigations}}</td>
+				</tr>
+				
+				<tr>
+					<th>Example Instances</th>
+					<td>{{i.exampleinstances}}</td>
+				</tr>
+				
+				<tr>
+					<th>Related Weaknesses</th>
+					<td>{{i.relatedweaknesses}}</td>
+				</tr>
+				
+				<tr>
+					<th>Taxonomy Mappings</th>
+					<td>{{i.taxonomymappings}}</td>
+				</tr>
+				
+				<tr>
+					<th>Notes</th>
+					<td>{{i.notes}}</td>
+				</tr>
+				
+				{% endfor %}
+				
+			</table>
+		</div>
+		
+	</div>	
+</div>
+<br>
+
+{% endblock content %}
