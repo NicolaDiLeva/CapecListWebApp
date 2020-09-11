@@ -26,16 +26,13 @@
 	<div style="width: 100%; display: inline-block">
 		<div class="card-body">
 		
-		  <!-- form ID -->
+			<!-- form ID -->
 			<form action="/id" class="form-text" method="post">
 				<h5 class="card-title">Ricerca per ID</h5>
 				<p class="card-text">Inserisci l'ID dell'attacco desiderato:</p>
 				<input type="text" class="form-control-sm-2" id="id_query" name="id_query">
 				<input type="submit" class="btn btn-primary" value="Cerca">
-				<!-- <button class="btn btn-default mb-2">
-					<a href="{% url 'id' %}/{{ id_query }}" class="btn btn-info" role="button">Cerca_old</a>
-				</button>
-				-->
+				<input class="btn btn-outline-primary" type="reset" value="Cancella">				
 			</form>
 		  
 		</div>
@@ -46,17 +43,14 @@
 	<div style="width: 100%; display: inline-block">
 		<div class="card-body">
 		
-		  <!-- form ParentOf -->
-		  <form action="/parent" class="form-text" method="post">
-				  <h5 class="card-title">Ricerca per Relazione</h5>
-				  <p class="card-text">Inserisci l'ID dell'attacco di cui vuoi conoscere le relazioni:</p>			  
-				  <input type="text" class="form-control-sm-2" id="id_query" name="id_query">
-				  <input type="submit" class="btn btn-primary" value="Cerca">
-				  <!-- <button class="btn btn-default mb-2">
-					<a href="{% url 'id' %}/{{ id_query }}" class="btn btn-info" role="button">Cerca_old</a>
-				  </button>
-					-->
-				</form>
+			<!-- form ParentOf -->
+			<form action="/parent" class="form-text" method="post">
+				<h5 class="card-title">Ricerca per Relazione</h5>
+				<p class="card-text">Inserisci l'ID dell'attacco di cui vuoi conoscere le relazioni:</p>			  
+				<input type="text" class="form-control-sm-2" id="id_query" name="id_query">
+				<input type="submit" class="btn btn-primary" value="Cerca">
+				<input class="btn btn-outline-primary" type="reset" value="Cancella">
+			</form>
 		  
 		</div>
     </div>
@@ -66,16 +60,13 @@
 	<div style="width: 100%; display: inline-block">
 		<div class="card-body">
 		
-		  <!-- form name -->
+			<!-- form name -->
 			<form action="/name" class="form-text" method="post">
 				<h5 class="card-title">Ricerca per Nome</h5>
 				<p class="card-text">Inserisci il nome dell'attacco desiderato:</p>
 				<input type="text" class="form-control-sm-2" id="name" name="name">
 				<input type="submit" class="btn btn-primary" value="Cerca">
-				<!-- <button class="btn btn-default mb-2">
-					<a href="{% url 'id' %}/{{ id_query }}" class="btn btn-info" role="button">Cerca_old</a>
-				</button>
-				-->
+				<input class="btn btn-outline-primary" type="reset" value="Cancella">				
 			</form>
 		  
 		</div>
@@ -95,7 +86,7 @@
 	  <!-- button Meta -->
       <form method="get">
 		<button class="btn btn-default">
-			<a href="{% url 'MetaAbstractions' %}" class="btn btn-primary" role="button">Cerca tutti gli attacchi di tipo Meta</a>
+			<a href="{% url 'MetaAbstractions' %}" class="btn btn-primary" role="button">Cerca tutti gli attacchi di tipo "Meta"</a>
 		</button>
 	  </form>
 	  
@@ -108,7 +99,7 @@
 	  <!-- button Standard -->
       <form method="get">
 		<button class="btn btn-default">
-			<a href="{% url 'StandardAbstractions' %}" class="btn btn-primary" role="button">Cerca tutti gli attacchi di tipo Standard</a>
+			<a href="{% url 'StandardAbstractions' %}" class="btn btn-primary" role="button">Cerca tutti gli attacchi di tipo "Standard"</a>
 		</button>
 	  </form>
 	  
@@ -121,7 +112,7 @@
 	  <!-- button Detailed -->
       <form method="get">
 		<button class="btn btn-default">
-			<a href="{% url 'DetailedAbstractions' %}" class="btn btn-primary" role="button">Cerca tutti gli attacchi di tipo Detailed</a>
+			<a href="{% url 'DetailedAbstractions' %}" class="btn btn-primary" role="button">Cerca tutti gli attacchi di tipo "Detailed"</a>
 		</button>
 	  </form>
 	  
@@ -135,5 +126,6 @@
 
 	
 <!--prova-->
+
 
 {% endblock %}

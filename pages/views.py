@@ -7,7 +7,6 @@ from django.shortcuts import render
 from data.models import *
 
 
-
 def home_view(request):
     
     return render(request, "pages/home.html")
@@ -25,8 +24,8 @@ def details_view(request, id):
     }
     
     return render(request, "pages/details.html", context)
-   
 
+		
 #selezione delle views
 def DomainsOfAttack_view(request):
 
@@ -103,7 +102,7 @@ def id_view(request):
     context = {
        'object': obj
     }
-    return render(request, "pages/results.html", context)
+    return render(request, "pages/id_results.html", context)
     
     
 #query ParentOf
@@ -117,7 +116,7 @@ def parent_view(request):
     context = {
        'object': obj
     }
-    return render(request, "pages/results.html", context)  
+    return render(request, "pages/parent_results.html", context)  
 
 
 #query name
@@ -131,4 +130,5 @@ def name_view(request):
     context = {
        'object': obj
     }
-    return render(request, "pages/results.html", context) 
+    return render(request, "pages/name_results.html", context) 
+    

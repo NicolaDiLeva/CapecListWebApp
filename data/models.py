@@ -126,9 +126,6 @@ class DomainsOfAttack(models.Model):
 
     def __str__(self):
         return '%s (%s)' % (self.name, str(self.id))
-    
-    def string_parsing(self):
-        return self.relatedattackpatterns.split('\n')
         
     class Meta:
         managed = False

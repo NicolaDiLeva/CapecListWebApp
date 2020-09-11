@@ -1,0 +1,51 @@
+{%  extends 'pages/base.html' %}
+
+{% block content %}
+
+<!-- risultati-->
+<br>
+<div class="row">
+    <div class="col-md">
+    
+        <div class="card card-body">
+            <h4>Ecco i risultati della tua ricerca:</h4><br>
+			<p><font size="3">La lista degli attachi collegati al CAPEC ID inserito è la seguente:</font></p>
+        </div>
+        
+        <br>
+        <div class="card">
+            <table class="table">
+			
+                <tr>
+                    <th>Name</th>
+                    <th>Id</th>
+                    <th>Abstraction</th>
+                    <th>Related Attack Patterns</th>
+                    <th>Typical Severity</th>                           
+                </tr>
+                
+				{% for i in object %}
+					<tr>
+						<td style="width: 28%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
+						<td>{{i.id}}</td>
+						<td style="padding-left: 1.5%">{{i.abstraction}}</td>
+						<td style="width: 30%">{{i.relatedattackpatterns}}<br></td>
+						<td style="padding-left: 4%">{{i.typicalseverity}}</td>
+					</tr>
+				{% empty %}
+					<table class="table" style="height: 50px">
+						<tr>
+							<td><font size="5">Nessun risultato trovato.</font></td>
+						</tr>
+					</table>										
+				{% endfor %}            
+			
+			</table>
+			
+        </div>
+        
+    </div>  
+</div>
+<br>
+
+{% endblock content %}

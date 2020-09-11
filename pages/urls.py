@@ -21,12 +21,14 @@ from pages.views import (
     home_view,
 	
     )
+
+
 urlpatterns = [
+
     path('', views.home_view, name='home'),
 	
     url(r'^home', views.home_view, name='home'),
 	url(r'^id', views.id_view, name='id'),
-#   url(r'^meta', views.meta_view, name='meta'),
     url(r'^parent', views.parent_view, name='parent'),
 	url(r'^name', views.name_view, name='name'),
 	url(r'^query', views.query_view, name='query'),
@@ -39,7 +41,5 @@ urlpatterns = [
 	url(r'^MetaAbstractions', views.MetaAbstractions_view, name='MetaAbstractions'),
 	url(r'^StandardAbstractions', views.StandardAbstractions_view, name='StandardAbstractions'),
 	url(r'^DetailedAbstractions', views.DetailedAbstractions_view, name='DetailedAbstractions'),
-    
-    
-    
+       
 ]
