@@ -1,14 +1,11 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.shortcuts import render
 
 #import delle classi
 from data.models import *
 
-import logging
-logger = logging.getLogger("mylogger")
 
 
 def home_view(request):
@@ -37,7 +34,7 @@ def DomainsOfAttack_view(request):
     context = {
         'object': obj
     }
-    
+
     return render(request, "pages/results.html", context)
 
 def MechanismsOfAttack_view(request):
@@ -94,20 +91,11 @@ def DetailedAbstractions_view(request):
     
     return render(request, "pages/results.html", context)
 
-#prova
-#class DomainsList(ListView):
-#    model = DomainsOfAttack
-#    template_name = "results.html"
-#    
-#    def get_context_data(self, **kwargs):
-#        context = super().get_context_data(**kwargs)
-#        
-#        return context
 
 #query id
 @csrf_exempt
 def id_view(request):
-    idval = "2"
+    idval = "null"
     idval = request.POST.get("id_query")
     #print(idval)
     #logger.info("cheat")
@@ -121,7 +109,7 @@ def id_view(request):
 #query ParentOf
 @csrf_exempt
 def parent_view(request):
-    idval = "2"
+    idval = "null"
     idval = request.POST.get("id_query")
     #print(idval)
     #logger.info("cheat")

@@ -6,7 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-from django.forms import TextInput,Textarea
+
 
 
 class ComprehensiveCapecDictionary(models.Model):
@@ -127,8 +127,8 @@ class DomainsOfAttack(models.Model):
     def __str__(self):
         return '%s (%s)' % (self.name, str(self.id))
     
-    def get_absolute_url(self):
-        return "/DomainsOfAttack/%i/" % self.id
+    def string_parsing(self):
+        return self.relatedattackpatterns.split('\n')
         
     class Meta:
         managed = False
