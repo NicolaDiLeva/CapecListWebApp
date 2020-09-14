@@ -126,11 +126,14 @@ class DomainsOfAttack(models.Model):
 
     def __str__(self):
         return '%s (%s)' % (self.name, str(self.id))
-        
+    
+            
     class Meta:
         managed = False
         db_table = 'Domains of Attack'
         verbose_name_plural = 'Domains of Attack'
+        
+    
     
     
 

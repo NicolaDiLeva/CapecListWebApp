@@ -1,10 +1,14 @@
 {%  extends 'pages/base.html' %}
-
+{% load parse%}
 {% block content %}
 <style>
 
 table, th{
   width: 20%;
+}
+
+table, th{
+	split:""|linebreaksbr;
 }
 
 </style>
@@ -60,22 +64,22 @@ table, th{
 					
 				<tr>
 					<th>Related Attack Patterns</th>
-					<td>{{i.relatedattackpatterns}}</td>
+					<td>{{i.relatedattackpatterns|split:""|linebreaksbr}}</td>
 				</tr>	
 				
 				<tr>
 					<th>Execution Flow</th>
-					<td>{{i.executionflow}}</td>
+					<td>{{i.executionflow|split:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Prerequisites</th>
-					<td>{{i.prerequisites}}</td>
+					<td>{{i.prerequisites|split:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Skills Required</th>
-					<td>{{i.skillsrequired}}</td>
+					<td>{{i.skillsrequired|split:""|linebreaksbr}}</td>
 				</tr>
 												
 				<tr>
@@ -90,27 +94,27 @@ table, th{
 				
 				<tr>
 					<th>Indicators</th>
-					<td>{{i.indicators}}</td>
+					<td>{{i.indicators|split:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Consequences</th>
-					<td>{{i.consequences}}</td>
+					<td>{{i.consequences|split:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Mitigations</th>
-					<td>{{i.mitigations}}</td>
+					<td>{{i.mitigations|split:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Example Instances</th>
-					<td>{{i.exampleinstances}}</td>
+					<td>{{i.exampleinstances|split:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Related Weaknesses</th>
-					<td>{{i.relatedweaknesses}}</td>
+					<td>{{i.relatedweaknesses|split:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>

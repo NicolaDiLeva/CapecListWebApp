@@ -1,5 +1,5 @@
 {%  extends 'pages/base.html' %}
-
+{% load parse %}
 {% block content %}
 
 <!-- risultati-->
@@ -14,23 +14,25 @@
         
         <br>
         <div class="card">
-            <table class="table">
+            <table class="table" style="height: 90px">
 			
                 <tr>
                     <th>Name</th>
                     <th>Id</th>
                     <th>Abstraction</th>
                     <th>Related Attack Patterns</th>
-                    <th>Typical Severity</th>                           
+                    <th>Typical Severity</th>
+					<th>Likehood of Attack</th>					
                 </tr>
                 
 				{% for i in object %}
 					<tr>
-						<td style="width: 28%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
+						<td style="width: 30%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
 						<td>{{i.id}}</td>
-						<td style="padding-left: 1.5%">{{i.abstraction}}</td>
-						<td style="width: 29%">{{i.relatedattackpatterns}}<br></td>
-						<td style="padding-left: 4%">{{i.typicalseverity}}</td>
+						<td>{{i.abstraction}}</td>
+						<td>{{i.relatedattackpatterns|split:""|linebreaksbr}}<br></td>
+						<td>{{i.typicalseverity}}</td>
+						<td>{{i.likelihoodofattack}}</td>
 					</tr>
 				{% empty %}
 					<table class="table" style="height: 50px">
