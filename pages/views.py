@@ -34,7 +34,7 @@ def DomainsOfAttack_view(request):
         'object': obj
     }
 
-    return render(request, "pages/results.html", context)
+    return render(request, "pages/views.html", context)
 
 def MechanismsOfAttack_view(request):
 
@@ -43,7 +43,7 @@ def MechanismsOfAttack_view(request):
         'object': obj
     }
     
-    return render(request, "pages/results.html", context)
+    return render(request, "pages/views.html", context)
 
 def DeprecatedEntries_view(request):
 
@@ -52,7 +52,7 @@ def DeprecatedEntries_view(request):
         'object': obj
     }
     
-    return render(request, "pages/results.html", context)
+    return render(request, "pages/views.html", context)
 
 def MobileDevicePatterns_view(request):
 
@@ -61,7 +61,7 @@ def MobileDevicePatterns_view(request):
         'object': obj
     }
     
-    return render(request, "pages/results.html", context)
+    return render(request, "pages/views.html", context)
     
 def MetaAbstractions_view(request):
 
@@ -70,7 +70,7 @@ def MetaAbstractions_view(request):
         'object': obj
     }
     
-    return render(request, "pages/results.html", context)
+    return render(request, "pages/views.html", context)
 
 def StandardAbstractions_view(request):
 
@@ -79,7 +79,7 @@ def StandardAbstractions_view(request):
         'object': obj
     }
     
-    return render(request, "pages/results.html", context)
+    return render(request, "pages/views.html", context)
 
 def DetailedAbstractions_view(request):
 
@@ -88,7 +88,7 @@ def DetailedAbstractions_view(request):
         'object': obj
     }
     
-    return render(request, "pages/results.html", context)
+    return render(request, "pages/views.html", context)
 
 
 #query id
