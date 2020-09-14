@@ -1,17 +1,18 @@
 from django import template
 from django.template.defaultfilters import stringfilter
+import re
+
 
 register = template.Library()
 
-@register.filter(name='split')
+@register.filter(name='parse')
 @stringfilter
 
-def split(value, arg):
-	
-	replace1 = value.replace("::",";")
-	replace2 = replace1.replace(":", " ")
-	strip = replace2.lstrip(";")
-	
-	parse = strip.replace(";", "\n")
-	
-	return parse
+def parse(value, arg):
+    
+    replace1 = value.replace('::',';')
+    replace2 = replace1.replace(':', ' ')
+    strip = replace2.lstrip(';')
+    parsed = strip.replace(';', '\n')
+    
+    return parsed

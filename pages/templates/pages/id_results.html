@@ -14,7 +14,7 @@
         
         <br>
         <div class="card">
-            <table class="table" style="height: 90px">
+            <table class="table">
 			
                 <tr>
                     <th>Name</th>
@@ -30,7 +30,7 @@
 						<td style="width: 30%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
 						<td>{{i.id}}</td>
 						<td>{{i.abstraction}}</td>
-						<td>{{i.relatedattackpatterns|split:""|linebreaksbr}}<br></td>
+						<td>{{i.relatedattackpatterns|parse:""|linebreaksbr}}</td>
 						<td>{{i.typicalseverity}}</td>
 						<td>{{i.likelihoodofattack}}</td>
 					</tr>
@@ -48,6 +48,5 @@
         
     </div>  
 </div>
-<br>
 
 {% endblock content %}

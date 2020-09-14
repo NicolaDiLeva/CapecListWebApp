@@ -1,5 +1,5 @@
 {%  extends 'pages/base.html' %}
-{% load parse%}
+{% load parse %}
 {% block content %}
 
 <!-- risultati-->
@@ -30,7 +30,7 @@
 						<td style="width: 28%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
 						<td>{{i.id}}</td>
 						<td>{{i.abstraction}}</td>
-						<td>{{i.relatedattackpatterns|split:""|linebreaksbr}}<br></td>
+						<td>{{i.relatedattackpatterns|parse:""|linebreaksbr}}</td>
 						<td>{{i.typicalseverity}}</td>
 						<td>{{i.likelihoodofattack}}</td>
 					</tr>
@@ -48,6 +48,5 @@
         
     </div>  
 </div>
-<br>
 
 {% endblock content %}

@@ -1,5 +1,5 @@
 {%  extends 'pages/base.html' %}
-{% load parse%}
+{% load parse %}
 {% block content %}
 
 <!-- risultati-->
@@ -30,14 +30,14 @@
 						<td style="width: 32%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
 						<td>{{i.id}}</td>
 						<td>{{i.abstraction}}</td>
-						<td>{{i.relatedattackpatterns|split:""|linebreaksbr}}<br></td>
+						<td>{{i.relatedattackpatterns|parse:""|linebreaksbr}}</td>
 						<td>{{i.typicalseverity}}</td>
 						<td>{{i.likelihoodofattack}}</td>
 					</tr>
 				{% empty %}
 					<table class="table" style="height: 50px">
 						<tr>
-							<td><font size="5">Nessun risultato trovato. Inserisci un altro paramentro.</font></td>
+							<td><font size="5">Nessun risultato trovato.</font></td>
 						</tr>
 					</table>										
 				{% endfor %}            
@@ -48,6 +48,5 @@
         
     </div>  
 </div>
-<br>
 
 {% endblock content %}

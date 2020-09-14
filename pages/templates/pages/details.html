@@ -7,10 +7,6 @@ table, th{
   width: 20%;
 }
 
-table, th{
-	split:""|linebreaksbr;
-}
-
 </style>
 
 <!-- risultati-->
@@ -64,22 +60,22 @@ table, th{
 					
 				<tr>
 					<th>Related Attack Patterns</th>
-					<td>{{i.relatedattackpatterns|split:""|linebreaksbr}}</td>
+					<td>{{i.relatedattackpatterns|parse:""|linebreaksbr}}</td>
 				</tr>	
 				
 				<tr>
 					<th>Execution Flow</th>
-					<td>{{i.executionflow|split:""|linebreaksbr}}</td>
+					<td>{{i.executionflow|parse:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Prerequisites</th>
-					<td>{{i.prerequisites|split:""|linebreaksbr}}</td>
+					<td>{{i.prerequisites|parse:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Skills Required</th>
-					<td>{{i.skillsrequired|split:""|linebreaksbr}}</td>
+					<td>{{i.skillsrequired|parse:""|linebreaksbr}}</td>
 				</tr>
 												
 				<tr>
@@ -89,37 +85,37 @@ table, th{
 				
 				<tr>
 					<th>Resources Required</th>
-					<td>{{i.resourcesrequired}}</td>
+					<td>{{i.resourcesrequired|parse:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Indicators</th>
-					<td>{{i.indicators|split:""|linebreaksbr}}</td>
+					<td>{{i.indicators|parse:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Consequences</th>
-					<td>{{i.consequences|split:""|linebreaksbr}}</td>
+					<td>{{i.consequences|parse:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Mitigations</th>
-					<td>{{i.mitigations|split:""|linebreaksbr}}</td>
+					<td>{{i.mitigations|parse:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Example Instances</th>
-					<td>{{i.exampleinstances|split:""|linebreaksbr}}</td>
+					<td>{{i.exampleinstances|parse:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Related Weaknesses</th>
-					<td>{{i.relatedweaknesses|split:""|linebreaksbr}}</td>
+					<td>{{i.relatedweaknesses|parse:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>
 					<th>Taxonomy Mappings</th>
-					<td>{{i.taxonomymappings}}</td>
+					<td>{{i.taxonomymappings|parse:""|linebreaksbr}}</td>
 				</tr>
 				
 				<tr>

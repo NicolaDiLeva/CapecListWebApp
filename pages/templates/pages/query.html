@@ -31,7 +31,7 @@
 			<form action="/id" class="form-text" method="post">
 				<h5 class="card-title">Ricerca per ID</h5>
 				<p class="card-text">Inserisci l'ID dell'attacco desiderato:</p>
-				<input type="text" class="form-control-sm-2" id="id_query" name="id_query">
+				<input type="number" class="form-control-sm-2" id="id_query" name="id_query" min="1">
 				<input type="submit" class="btn btn-primary" value="Cerca">
 				<input class="btn btn-outline-primary" type="reset" value="Cancella">				
 			</form>
@@ -48,7 +48,7 @@
 			<form action="/parent" class="form-text" method="post">
 				<h5 class="card-title">Ricerca per Relazione</h5>
 				<p class="card-text">Inserisci l'ID dell'attacco di cui vuoi conoscere le relazioni:</p>			  
-				<input type="text" class="form-control-sm-2" id="id_query" name="id_query">
+				<input type="number" class="form-control-sm-2" id="id_query" name="id_query" min="1">
 				<input type="submit" class="btn btn-primary" value="Cerca">
 				<input class="btn btn-outline-primary" type="reset" value="Cancella">
 			</form>
