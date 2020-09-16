@@ -1,5 +1,6 @@
 {%  extends 'pages/base.html' %}
 {% load parse %}
+{% load int_parse %}
 {% block content %}
 
 <!-- risultati-->
@@ -9,41 +10,54 @@
     
         <div class="card card-body">
             <h4>Ecco i risultati della tua ricerca:</h4><br>
-			<p><font size="3">La lista degli attacchi collegati al CAPEC ID inserito è la seguente:</font></p>
+            <p><font size="3">La lista degli attacchi collegati al CAPEC ID inserito è la seguente:</font></p>
         </div>
         
         <br>
         <div class="card">
             <table class="table">
-			
+            
                 <tr>
                     <th>Name</th>
                     <th>Id</th>
                     <th>Abstraction</th>
                     <th>Related Attack Patterns</th>
                     <th>Typical Severity</th>
-					<th>Likehood of Attack</th>
+                    <th>Likelihood of Attack</th>
                 </tr>
                 
-				{% for i in object %}
-					<tr>
-						<td style="width: 32%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
-						<td>{{i.id}}</td>
-						<td>{{i.abstraction}}</td>
-						<td>{{i.relatedattackpatterns|parse:""|linebreaksbr}}</td>
-						<td>{{i.typicalseverity}}</td>
-						<td>{{i.likelihoodofattack}}</td>
-					</tr>
-				{% empty %}
-					<table class="table" style="height: 50px">
-						<tr>
-							<td><font size="5">Nessun risultato trovato.</font></td>
-						</tr>
-					</table>										
-				{% endfor %}            
-			
-			</table>
-			
+                {% for i in object %}
+                    <tr>
+                        <td style="width: 32%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
+                        <td>{{i.id}}</td>
+                        <td>{{i.abstraction}}</td>
+                        
+                        <td>
+                            {% for j in i.relatedattackpatterns|parse:"" %}
+                                
+                                {% if j|int_parse:"" != None %}
+                                    
+                                    <a href="/details/{{j|int_parse:""}}/">{{j}}</a><br>
+                                    {% else %}
+                                        None                        
+                                {% endif %}
+                                    
+                            {% endfor %}
+                        </td>
+                        
+                        <td>{{i.typicalseverity}}</td>
+                        <td>{{i.likelihoodofattack}}</td>
+                    </tr>
+                {% empty %}
+                    <table class="table" style="height: 50px">
+                        <tr>
+                            <td><font size="5">Nessun risultato trovato.</font></td>
+                        </tr>
+                    </table>                                        
+                {% endfor %}            
+            
+            </table>
+            
         </div>
         
     </div>  

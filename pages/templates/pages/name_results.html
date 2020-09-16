@@ -1,5 +1,6 @@
 {%  extends 'pages/base.html' %}
 {% load parse %}
+{% load int_parse %}
 {% block content %}
 
 <!-- risultati-->
@@ -22,7 +23,7 @@
                     <th>Abstraction</th>
                     <th>Related Attack Patterns</th>
                     <th>Typical Severity</th>
-					<th>Likehood of Attack</th>
+					<th>Likelihood of Attack</th>
                 </tr>
                 
 				{% for i in object %}
@@ -30,7 +31,20 @@
 						<td style="width: 28%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
 						<td>{{i.id}}</td>
 						<td>{{i.abstraction}}</td>
-						<td>{{i.relatedattackpatterns|parse:""|linebreaksbr}}</td>
+						
+						<td>
+							{% for j in i.relatedattackpatterns|parse:"" %}
+                            
+								{% if j|int_parse:"" != None %}
+									
+									<a href="/details/{{j|int_parse:""}}/">{{j}}</a><br>
+									{% else %}
+										None						
+								{% endif %}
+								
+                            {% endfor %}
+						</td>
+						
 						<td>{{i.typicalseverity}}</td>
 						<td>{{i.likelihoodofattack}}</td>
 					</tr>

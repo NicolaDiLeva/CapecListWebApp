@@ -1,7 +1,5 @@
 from django import template
 from django.template.defaultfilters import stringfilter
-import re
-
 
 register = template.Library()
 
@@ -10,9 +8,14 @@ register = template.Library()
 
 def parse(value, arg):
     
-    replace1 = value.replace('::',';')
-    replace2 = replace1.replace(':', ' ')
-    strip = replace2.lstrip(';')
-    parsed = strip.replace(';', '\n')
+    parsed = []
+    split = value.split("::")
+    
+    for s in split:
+        if s=='':
+            pass
+        else:
+            replace = s.replace(':', ' ')
+            parsed.append(replace)
     
     return parsed

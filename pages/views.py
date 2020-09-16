@@ -24,8 +24,7 @@ def details_view(request, id):
     }
     
     return render(request, "pages/details.html", context)
-
-        
+    
 #selezione delle views
 def DomainsOfAttack_view(request):
 
@@ -94,11 +93,12 @@ def DetailedAbstractions_view(request):
 #query id
 @csrf_exempt
 def id_view(request):
+    
     idval = "null"
     idval = request.POST.get("id_query")
-    #print(idval)
-    #logger.info("cheat")
+    
     obj = DomainsOfAttack.objects.filter(id=idval)
+    
     context = {
        'object': obj
     }
@@ -108,11 +108,12 @@ def id_view(request):
 #query ParentOf
 @csrf_exempt
 def parent_view(request):
+
     idval = "null"
     idval = request.POST.get("id_query")
-    #print(idval)
-    #logger.info("cheat")
-    obj = DomainsOfAttack.objects.filter(relatedattackpatterns__icontains=":" + idval + "::")
+    
+    obj = DomainsOfAttack.objects.filter(relatedattackpatterns__contains=":" + idval + "::")
+    
     context = {
        'object': obj
     }
@@ -122,11 +123,12 @@ def parent_view(request):
 #query name
 @csrf_exempt
 def name_view(request):
+
     name = " "
     name = request.POST.get("name")
-    #print(idval)
-    #logger.info("cheat")
+    
     obj = DomainsOfAttack.objects.filter(name__icontains=name)
+    
     context = {
        'object': obj
     }
