@@ -3,6 +3,20 @@
 {% load int_parse %}
 {% block content %}
 
+<style>
+
+.table th,
+.table td{	
+	vertical-align: middle;
+}
+
+.a th,
+.a td{
+	border:1px;
+}
+
+</style>
+
 <!-- risultati-->
 <br>
 <div class="row">
@@ -18,35 +32,53 @@
             <table class="table">
             
                 <tr>
-                    <th>Name</th>
-                    <th>Id</th>
-                    <th>Abstraction</th>
-                    <th>Related Attack Patterns</th>
-                    <th>Typical Severity</th>
-                    <th>Likelihood of Attack</th>
+                    <th width="32%">Name</th>
+                    <th style="padding-left: 10px">Id</th>
+                    <th style="padding-left: 30px">Abstraction</th>
+                    <th>Related Attack Patterns</th>						
+                    <th style="padding-left: 25px">Typical Severity</th>
+                    <th style="padding-left: 25px">Likelihood of Attack</th>
                 </tr>
                 
                 {% for i in object %}
                     <tr>
-                        <td style="width: 32%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
+                        <td width="32%"><a href="/details/{{i.id}}/">{{i.name}}</a></td>
                         <td>{{i.id}}</td>
-                        <td>{{i.abstraction}}</td>
+                        <td style="text-align:center; padding-right: 50px">{{i.abstraction}}</td>
                         
-                        <td>
-                            {% for j in i.relatedattackpatterns|parse:"" %}
-                            
-                                {% if j|int_parse:"" != None %}
-                                    
-                                    <a href="/details/{{j|int_parse:""}}/">{{j}}</a><br>
-                                    {% else %}
-                                        None                        
-                                {% endif %}
-                                
-                            {% endfor %}
-                        </td>
+                        <td width="19%">
+							{% if i.relatedattackpatterns != None %}
+							
+								<div class="card" style="width: 14rem">
+									<table class='a'>
+										<th>NATURE</th>								
+									</table>
+								</div>						
+							
+								{% for j in i.relatedattackpatterns|parse:"" %}
+									
+									{% with k=j|int_parse:"" %}
+										<div class="card" style="width: 14rem;">
+											<table class='a'>
+												<td>													
+													{{k.0}}&nbsp;<a href="/details/{{k.1}}/">{{k.1}}</a><br>													
+												</td>
+											</table>
+										</div>	
+									{% endwith %}
+									
+								{% endfor %}
+							{% else %}
+								<div class="card" style="width: 14rem;  height:55px">
+									<table class="table">
+										<td style="text-align:center;">None</td>										
+									</table>
+								</div>
+							{% endif %}	
+						</td>
                         
-                        <td>{{i.typicalseverity}}</td>
-                        <td>{{i.likelihoodofattack}}</td>
+                        <td style="text-align:center; padding-right: 60px">{{i.typicalseverity}}</td>
+                        <td style="text-align:center; padding-right: 75px">{{i.likelihoodofattack}}</td>
                     </tr>                                    
                 {% endfor %}            
             

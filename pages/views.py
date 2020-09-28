@@ -99,10 +99,13 @@ def id_view(request):
     
     obj = DomainsOfAttack.objects.filter(id=idval)
     
-    context = {
-       'object': obj
-    }
-    return render(request, "pages/id_results.html", context)
+    if obj.exists():
+        context = {
+           'object': obj
+        }
+        return render(request, "pages/id_results.html", context)
+    else:
+        return render(request, "pages/id_results.html", {})
     
     
 #query ParentOf
@@ -114,10 +117,13 @@ def parent_view(request):
     
     obj = DomainsOfAttack.objects.filter(relatedattackpatterns__contains=":" + idval + "::")
     
-    context = {
-       'object': obj
-    }
-    return render(request, "pages/parent_results.html", context)  
+    if obj.exists():
+        context = {
+           'object': obj
+        }
+        return render(request, "pages/parent_results.html", context)
+    else:
+        return render(request, "pages/parent_results.html", {})
 
 
 #query name
@@ -129,8 +135,10 @@ def name_view(request):
     
     obj = DomainsOfAttack.objects.filter(name__icontains=name)
     
-    context = {
-       'object': obj
-    }
-    return render(request, "pages/name_results.html", context) 
-    
+    if obj.exists():
+        context = {
+           'object': obj
+        }
+        return render(request, "pages/name_results.html", context)
+    else:
+        return render(request, "pages/name_results.html", {})    

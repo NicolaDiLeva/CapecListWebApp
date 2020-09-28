@@ -7,15 +7,16 @@ register = template.Library()
 @stringfilter
 
 def parse(value, arg):
-    
-    parsed = []
+
+    list = []
     split = value.split("::")
     
     for s in split:
         if s=='':
             pass
         else:
-            replace = s.replace(':', ' ')
-            parsed.append(replace)
-    
-    return parsed
+            rep1 = s.replace(':', ' ')
+            rep2 = rep1.replace('NATURE','')
+            list.append(rep2)
+
+    return list

@@ -3,10 +3,20 @@
 {% load int_parse %}
 {% load string %}
 {% block content %}
+
 <style>
 
-table, th{
-  width: 20%;
+.table th{
+  width: 17%;
+  vertical-align: middle;
+}
+
+.a th,
+.a td {
+	border:1px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
 }
 
 </style>
@@ -62,20 +72,34 @@ table, th{
 					
 				<tr>
 					<th>Related Attack Patterns</th>
-					<td>
 					
-						{% for j in i.relatedattackpatterns|parse:"" %}
-                            
-							{% if j|int_parse:"" != None %}
-								
-								<a href="/details/{{j|int_parse:""}}/">{{j}}</a><br>
-								{% else %}
-									None                        
-							{% endif %}
-							
-						{% endfor %}
+					<td>
+						{% if i.relatedattackpatterns != None %}
 						
-					</td>
+							<div class="card" style="width: 14rem;">
+								<table class='a'>
+									<th>NATURE</th>								
+								</table>
+							</div>						
+						
+							{% for j in i.relatedattackpatterns|parse:"" %}
+								
+								{% with k=j|int_parse:"" %}
+									<div class="card" style="width: 14rem;">
+										<table class='a'>
+											<td>													
+												{{k.0}}&nbsp;<a href="/details/{{k.1}}/">{{k.1}}</a>													
+											</td>
+										</table>
+									</div>	
+								{% endwith %}
+								
+							{% endfor %}		
+						
+						{% else %}
+							None                                
+						{% endif %}
+					</td>					
 				</tr>	
 				
 				<tr>
