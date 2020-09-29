@@ -1,6 +1,7 @@
 {%  extends 'pages/base.html' %}
 {% load parse %}
 {% load int_parse %}
+{% load str_split %}
 {% block content %}
 
 <style>
@@ -47,25 +48,29 @@
                         <td style="text-align:center; padding-right: 50px">{{i.abstraction}}</td>
                         
                         <td width="19%">
-							{% if i.relatedattackpatterns != None %}
-							
-								<div class="card" style="width: 14rem">
-									<table class='a'>
-										<th>NATURE</th>								
-									</table>
-								</div>						
+							{% if i.relatedattackpatterns != None %}											
 							
 								{% for j in i.relatedattackpatterns|parse:"" %}
 									
-									{% with k=j|int_parse:"" %}
+									{% with k=j|str_split:"" %}
+								
 										<div class="card" style="width: 14rem;">
 											<table class='a'>
-												<td>													
-													{{k.0}}&nbsp;<a href="/details/{{k.1}}/">{{k.1}}</a><br>													
-												</td>
+												<th>NATURE: {{k.0}}</th>								
 											</table>
-										</div>	
-									{% endwith %}
+										</div>
+										
+										{% with z=j|int_parse:"" %}
+											<div class="card" style="width: 14rem;">
+												<table class='a'>
+													<td>													
+														{{z.1}} {{z.2}} <a href="/details/{{z.3}}/">{{z.3}}</a>													
+													</td>
+												</table>
+											</div>
+										{% endwith %}
+									
+								{% endwith %}
 									
 								{% endfor %}
 							{% else %}

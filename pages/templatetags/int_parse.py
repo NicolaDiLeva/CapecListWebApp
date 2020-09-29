@@ -1,6 +1,5 @@
 from django import template
 from django.template.defaultfilters import stringfilter
-import re
 
 register = template.Library()
 
@@ -9,6 +8,6 @@ register = template.Library()
 
 def int_parse(value, arg):  
 
-    split2 = value.rsplit(' ',1)
-
-    return split2
+    split = value.rsplit(' ',3)
+#    print(split)
+    return split
